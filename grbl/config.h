@@ -120,7 +120,7 @@
 // SPINDLE_PWM_ON_D9  => 0-12v 8 bits PWM on RAMPS D9
 // SPINDLE_PWM_ON_D6  => 0-5v 8bits PWM on RAMPS Servo 2 signal (Mega 2560 D6)
 // Uncomment the line which correspond to your hardware
-#define SPINDLE_PWM_ON_D8
+// #define SPINDLE_PWM_ON_D8
 //#define SPINDLE_PWM_ON_D6
 //#define SPINDLE_PWM_ON_D9
 
@@ -143,11 +143,11 @@
 // unpredictable behavior!
 //----------------------------------------------------------------------
 // Uncomment the next line to enable this functionality (default disabled):
-//#define SEPARATE_SPINDLE_LASER_PIN
+#define SEPARATE_SPINDLE_LASER_PIN
 
 #ifdef SEPARATE_SPINDLE_LASER_PIN
-  // Laser PWM can be on D6 (default) or on D8 or D9. 
-  #define LASER_PWM_ON_D6
+  // Laser PWM can be on D7 (default) or on D8 or D9. 
+  #define LASER_PWM_ON_D7
   //#define LASER_PWM_ON_D8
   //#define LASER_PWM_ON_D9
 #endif
@@ -243,13 +243,13 @@
   #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_2))     // OPTIONAL: uncomment to move X,Y at the same time.
   //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
   //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
-  //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
+  #define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
 #elif N_AXIS == 5 // 5 axis : homing
   #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
   #define HOMING_CYCLE_1 ((1<<AXIS_1)|(1<<AXIS_2))     // OPTIONAL: uncomment to move X,Y at the same time.
   //#define HOMING_CYCLE_1 (1<<AXIS_1) // Home X axis  // OPTIONAL: uncomment to move only X at a time.
   //#define HOMING_CYCLE_2 (1<<AXIS_2) // Home Y axis  // OPTIONAL: uncomment to move only Y at a time.
-  //#define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
+  #define HOMING_CYCLE_3 (1<<AXIS_4) // Home 4th axis (A)
   //#define HOMING_CYCLE_4 (1<<AXIS_5) // Home 5th axis (B)
 #elif N_AXIS == 6 // 6 axis : homing
   #define HOMING_CYCLE_0 (1<<AXIS_3) // Home Z axis first to clear workspace.
