@@ -249,6 +249,8 @@ void limits_go_home(uint8_t cycle_mask)
       // Set target based on max_travel setting. Ensure homing switches engaged with search scalar.
       // NOTE: settings.max_travel[] is stored as a negative value.
       max_travel = max(max_travel,(-HOMING_AXIS_SEARCH_SCALAR)*settings.max_travel[idx]);
+      // Special case of rotary axis with max_travel = 0
+      if ((idx >= N_AXIS_LINEAR) && (max_travel == 0)) { max_travel = HOMING_AXIS_SEARCH_SCALAR * 360.0; }
       if (max_travel < HOMING_AXIS_LOCATE_SCALAR) { system_set_exec_alarm(EXEC_ALARM_HOMING_FAIL_TRAVEL); }
     }
   }
